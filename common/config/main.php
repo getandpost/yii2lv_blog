@@ -14,5 +14,17 @@ return [
             'showScriptName' => false,
             'suffix' => '.html',
         ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    // 'basePath' => '/messages',
+                    'fileMap' => [
+                        'common' => 'common.php',
+                    ]
+                ]
+            ]
+        ]
     ],
+    'language' => 'zh-CN',
 ];
