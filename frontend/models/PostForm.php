@@ -7,13 +7,13 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 
-class PostFrom extends Model
+class PostForm extends Model
 {
     public $id;
     public $title;
     public $content;
     public $label_img;
-    public $cate_id;
+    public $cat_id;
     public $tags;
     
     public $_lastError = "";
@@ -22,7 +22,7 @@ class PostFrom extends Model
     {
         return [
             [['id', 'title', 'content', 'cat_id'], 'required'],
-            ['id', 'cat_id', 'integer'],
+            [['id', 'cat_id'], 'integer'],
             ['title', 'string', 'min' => 4, 'max' => 50],
         ];
     }
@@ -35,6 +35,7 @@ class PostFrom extends Model
             'content' => '内容',
             'label_img' => '标签图',
             'tags' => '标签',
+            'cat_id' => '分类',
         ];
     }
 }

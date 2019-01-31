@@ -6,6 +6,7 @@ namespace frontend\controllers;
  */
 use Yii;
 use frontend\controllers\base\BaseController;
+use frontend\models\PostForm;
 
 class PostController extends BaseController
 {
@@ -16,5 +17,17 @@ class PostController extends BaseController
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    
+    /**
+     * 创建文章
+     * @return string
+     */
+    public function actionCreate()
+    {
+        $model = new PostForm();
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 }
