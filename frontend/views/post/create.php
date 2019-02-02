@@ -27,7 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'config' => []
       ]) ?>
       
-      <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
+      <?= $form->field($model, 'content')->widget('common\widgets\ueditor\Ueditor', [
+        'options'=>[
+            'initialFrameHeight' => 400,
+        ]
+      ]) ?>
       
       <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
       
