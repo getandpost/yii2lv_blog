@@ -7,10 +7,23 @@ namespace frontend\controllers;
 use Yii;
 use frontend\controllers\base\BaseController;
 use frontend\models\PostForm;
+use common\models\Cats;
 
 class PostController extends BaseController
 {
 
+    public function actions()
+    {
+        return [
+            'upload'=>[
+                'class' => 'common\widgets\file_upload\UploadAction',     //这里扩展地址别写错
+                'config' => [
+                    'imagePathFormat' => "/image/{yyyy}{mm}{dd}/{time}{rand:6}",
+                ]
+            ]
+        ];
+    }
+    
     /**
      * 文章列表
      */
@@ -26,8 +39,10 @@ class PostController extends BaseController
     public function actionCreate()
     {
         $model = new PostForm();
+        $cat = Cats::getAllCats();
         return $this->render('create', [
             'model' => $model,
+            'cat' => $cat,
         ]);
     }
 }

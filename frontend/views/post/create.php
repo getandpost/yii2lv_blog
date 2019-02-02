@@ -21,9 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
       
       <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
       
-      <?= $form->field($model, 'cat_id')->dropDownList(['1' => '分类1', '2' => '分类2']) ?>
-      
-      <?= $form->field($model, 'label_img')->textInput(['maxlength' => true]) ?>
+      <?= $form->field($model, 'cat_id')->dropDownList($cat) ?>
+              
+      <?= $form->field($model, 'label_img')->widget('common\widgets\file_upload\FileUpload', [
+        'config' => []
+      ]) ?>
       
       <?= $form->field($model, 'content')->textInput(['maxlength' => true]) ?>
       
