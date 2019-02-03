@@ -19,8 +19,10 @@ use common\models\base\Base;
  * @property integer $created_at
  * @property integer $updated_at
  */
-class User extends Base
+class Post extends Base
 {
+    const IS_VALID = 1; // 发布
+    const NO_VALID = 0; // 未发布
     /**
      * {@inheritdoc}
      */
