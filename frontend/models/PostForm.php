@@ -7,6 +7,8 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use common\models\Post;
+use common\models\RelationPostTags;
+use yii\db\Query;
 
 class PostForm extends Model
 {
@@ -127,8 +129,30 @@ class PostForm extends Model
     /**
      * 添加标签
      */
-    public function _eventAddTag()
+    public function _eventAddTag($event)
     {
+        // 保存标签
+        $tag = new TagForm();
+        $tag->tags = $event->data['tags'];
+        $tagids = $tag->saveTags();
         
+        // 删除原先的关联关系
+        RelationPostTags::deleteAll(['post_id' => $event->data['id']]);
+        
+        // 批量保存文章标签的关联关系
+        if (!empty($tagids)) {
+            $rows = [];
+            foreach ($tagids as $k=>$id) {
+                $rows[$k]['post_id'] = $this->id;
+                $rows[$k]['tag_id'] = $id;
+            }
+            
+            $res = (new Query())->createCommand()
+                ->batchInsert(RelationPostTags::tableName(), ['post_id', 'tag_id'], $rows)
+                ->execute();
+            if (!$res) {
+                throw new \Exception("关联关系保存失败！");
+            }
+        }
     }
 }
