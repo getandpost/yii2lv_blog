@@ -29,6 +29,14 @@ class PostForm extends Model
     const SCENARIOS_UPDATE = 'update';
     
     /**
+     * EVENT_AFTER_CREATE 创建之后的事件
+     * EVENT_AFTER_UPDATE 更新之后的事件
+     * @var string
+     */
+    const EVENT_AFTER_CREATE = 'eventAfterCreate';
+    const EVENT_AFTER_UPDATE = 'eventAfterUpdate';
+    
+    /**
      * 场景设置
      * @see \yii\base\Model::scenarios()
      */
@@ -80,7 +88,8 @@ class PostForm extends Model
             $this->id = $model->id;
             
             // 调用事件
-            $this->_eventAfterCreate();
+            $data = array_merge($this->getAttributes(), $model->getAttributes());
+            $this->_eventAfterCreate($data);
             
             $transaction->commit();
         } catch (\Exception $e) {
@@ -108,7 +117,17 @@ class PostForm extends Model
     /**
      * 创建完成后调用的事件方法
      */
-    private function _eventAfterCreate()
+    public function _eventAfterCreate($data)
+    {
+        $this->on(self::EVENT_AFTER_CREATE, [$this, '_eventAddTag'], $data);
+        // 触发事件
+        $this->trigger(self::EVENT_AFTER_CREATE);
+    }
+    
+    /**
+     * 添加标签
+     */
+    public function _eventAddTag()
     {
         
     }
