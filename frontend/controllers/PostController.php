@@ -10,6 +10,7 @@ use frontend\models\PostForm;
 use common\models\Cats;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use common\models\Post;
 
 class PostController extends BaseController
 {
@@ -94,5 +95,16 @@ class PostController extends BaseController
             'model' => $model,
             'cat' => $cat,
         ]);
+    }
+    
+    /**
+     * 文章详情
+     */
+    public function actionView($id)
+    {
+        $model = new PostForm();
+        $data = $model->getViewById($id);
+        
+        return $this->render('view', ['data'=>$data]);
     }
 }

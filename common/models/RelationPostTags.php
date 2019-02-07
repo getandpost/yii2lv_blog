@@ -22,6 +22,11 @@ class RelationPostTags extends Base
         return 'relation_post_tags';
     }
 
+    public function getTag()
+    {
+        return $this->hasOne(Tags::className(), ['id' => 'tag_id']);
+    }
+    
     /**
      * {@inheritdoc}
      */

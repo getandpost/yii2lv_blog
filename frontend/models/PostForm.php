@@ -9,6 +9,7 @@ use yii\base\Model;
 use common\models\Post;
 use common\models\RelationPostTags;
 use yii\db\Query;
+use yii\web\NotFoundHttpException;
 
 class PostForm extends Model
 {
@@ -99,6 +100,23 @@ class PostForm extends Model
             $this->_lastError = $e->getMessage();
             return false;
         }
+    }
+    
+    public function getViewById($id)
+    {
+        $res = Post::find()->with('relate.tag')->where(['id'=>$id])->asArray()->one();
+        if (!$res) {
+            throw new NotFoundHttpException('文章不存在！');
+        }
+        // 处理标签格式
+        $res['tags'] = [];
+        if (isset($res['relate']) && !empty($res['relate'])) {
+            foreach ($res['relate'] as $list) {
+                $res['tags'][] = $list['tag']['tag_name'];
+            }
+        }
+        unset($res['relate']);
+        return $res;
     }
     
     /**
