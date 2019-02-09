@@ -36,6 +36,11 @@ class Post extends Base
         return $this->hasMany(RelationPostTags::className(), ['post_id' => 'id']);
     }
     
+    public function getExtend()
+    {
+        return $this->hasOne(PostExtends::className(), ['post_id' => 'id']);
+    }
+    
     /**
      * {@inheritdoc}
      */
