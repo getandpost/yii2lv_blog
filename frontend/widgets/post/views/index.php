@@ -27,7 +27,7 @@ use yii\widgets\LinkPager;
                         <span class="glyphicon glyphicon-comment"></span><a href="<?=Url::to(['post/detail','id'=>$list['id']])?>"><?=isset($list['extend']['comment'])?$list['extend']['comment']:0?></a>
                     </span>
                     <p class="post-content"><?=$list['summary']?></p>
-                    <a href="<?=Url::to(['post/detail','id'=>$list['id']])?>"><button class="btn btn-warning no-radius btn-sm pull-right">阅读全文</button></a>
+                    <a href="<?=Url::to(['post/view','id'=>$list['id']])?>"><button class="btn btn-warning no-radius btn-sm pull-right">阅读全文</button></a>
                 </div>
             </div>
             <div class="tags">
