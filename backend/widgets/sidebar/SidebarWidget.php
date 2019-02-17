@@ -28,11 +28,11 @@ class SidebarWidget extends Menu
                         ]                       
                     ],
                     ['label'=>'分类管理','url'=>['cats/index'],'items'=>[
-                        ['label'=>'创建文章','url'=>['cats/create'],'visible'=>false],
-                        ['label'=>'更新文章','url'=>['cats/update'],'visible'=>false],
+                        ['label'=>'创建分类','url'=>['cats/create'],'visible'=>false],
+                        ['label'=>'更新分类','url'=>['cats/update'],'visible'=>false],
                         ]                        
                     ],
-                    ['label'=>'标签管理','url'=>['tag/index']],
+                    ['label'=>'标签管理','url'=>['tags/index']],
                 ]
             ],
             ['label' =>'<a href=""><i class="fa fa-user"></i><span>会员管理</span></a>','options'=>['class'=>'nav-parent'],'items'=>[

@@ -49,11 +49,11 @@ a.asc:after, a.desc:after {
 }
 
 a.asc:after {
-    content: "\e151";
+    content: /*"\e113"*/ "\e151";
 }
 
 a.desc:after {
-    content: "\e152";
+    content: /*"\e114"*/ "\e152";
 }
 
 .sort-numerical a.asc:after {
@@ -72,13 +72,8 @@ a.desc:after {
     content: "\e156";
 }
 
-.grid-view td {
+.grid-view th {
     white-space: nowrap;
-}
-
-.grid-view .filters input,
-.grid-view .filters select {
-    min-width: 50px;
 }
 
 .hint-block {
@@ -95,28 +90,26 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
-/* align the logout "link" (button in form) of the navbar */
-.nav li > form > button.logout {
-    padding: 15px;
-    border: none;
+.navbar-right > li > a.avatar{
+    padding-top: 10px;
+    padding-bottom: 0;
 }
 
-@media(max-width:767px) {
-    .nav li > form > button.logout {
-        display:block;
-        text-align: left;
-        width: 100%;
-        padding: 10px 15px;
-    }
+.navbar-right > li > a.avatar img{
+    border: #ccc solid 1px;
+    width: 32px;
+    height: 32px;
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
-    text-decoration: none;
+.box-title{
+    color: #333;
+    font-size: 18px;
+    border-bottom: 2px solid #cbcbcb;
+    padding-bottom: 5px;
 }
 
-.nav > li > form > button.logout:focus {
-    outline: none;
+.panel-body{
+    padding: 15px 0 15px 0;
 }
 
 .select2-container--default .select2-selection--multiple {
@@ -131,14 +124,36 @@ a.desc:after {
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
-	background-color: #5cb85c;
-	color:#fff;
+    background-color: #5cb85c;
+    color:#fff;
 }
 
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
-	color:#fff;
+    color:#fff;
 }
 
+.page-title {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.page-title h1 {
+    font-size: 24px;
+    margin: 4px 0 10px;
+}
+
+.page-title span {
+    color: #999;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.page-content {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    min-height: 400px;
+}
 .panel-body h1 {
     font-size: 18px;
     height: 30px;
@@ -154,7 +169,7 @@ a.desc:after {
     line-height: 1.42857;
     padding: 4px;
     transition: border 0.2s ease-in-out 0s;
-	border-radius: 0;
+    border-radius: 0;
     margin-bottom: 5px;
     position: relative;
 }
@@ -210,16 +225,16 @@ a.desc:after {
 }
 
 .panel-body {
-	padding-left:0px;
-	padding-right:0px;
+    padding-left:0px;
+    padding-right:0px;
 }
 
 .feed .panel-body {
-	padding-bottom:0px;
+    padding-bottom:0px;
 }
 .btn-feed {
-	height:50px;
-	border-radius:0px;
+    height:50px;
+    border-radius:0px;
 }
 
 .form-group textarea {
@@ -231,8 +246,8 @@ a.desc:after {
 .panel-body .media-feed {
     height: 360px;
     position: relative;
-	word-break: break-all;
-	overflow:auto;
+    word-break: break-all;
+    overflow:auto;
 }
 
 .panel-body ul {
@@ -240,19 +255,60 @@ a.desc:after {
     margin: 0;
 }
 
-/**/
+.hot-list .media-left a{
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+    line-height: 22px;
+    background: #5cb85c;
+    width: 45px;
+    display: block;
+    height: 48px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.media-left em {
+    font-size: 14px;
+    font-weight: 500;
+    background: #fff;
+    display: block;
+    line-height: 26px;
+    color: #333;
+    font-style: normal;
+}
+
+.hot-list {
+    padding-bottom:10px;
+    border-bottom:1px solid #ccc;
+    margin-bottom:10px;
+}
+
+.media-right {
+    line-height:24px;
+}
+
+.hot-body {
+    padding:10px 0 5px 0;
+}
+
+/*±Í«©‘∆*/
 .tag-cloud a {
-	border: 1px solid #ebebeb;
+    border: 1px solid #ebebeb;
     padding: 2px 7px;
     color: #333;
     line-height: 2em;
     display: inline-block;
-	font-size:14px;
+    font-size:14px;
     margin: 0 7px 7px 0;
     transition: all 0.2s ease;
 }
 
 .tag-cloud a:hover {
-	background-color:#5bc0de;
-	text-decoration: none;
+    background-color:#5bc0de;
+    text-decoration: none;
+}
+
+.btn-post{
+    margin: 0 0 20px 0;
 }
