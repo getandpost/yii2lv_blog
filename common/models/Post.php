@@ -41,6 +41,11 @@ class Post extends Base
         return $this->hasOne(PostExtends::className(), ['post_id' => 'id']);
     }
     
+    public function getCat()
+    {
+        return $this->hasOne(Cats::className(), ['id' => 'cat_id']);
+    }
+    
     /**
      * {@inheritdoc}
      */
@@ -60,7 +65,7 @@ class Post extends Base
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => '标题',
             'summary' => 'Summary',
             'content' => 'Content',
             'label_img' => 'Label Img',
