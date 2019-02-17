@@ -42,9 +42,9 @@ class Cats extends Base
     {
         return [
             'id' => 'ID',
-            'cat_name' => 'Cat Name',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'cat_name' => '分类名称',
+            'created_at' => '创建时间',
+            'updated_at' => '更新时间',
         ];
     }
     
