@@ -8035,7 +8035,7 @@ fieldset[disabled] .btn-info.active {
   display: block;
 }
 .table-bordered {
-  border: 0;
+  border: 1;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
