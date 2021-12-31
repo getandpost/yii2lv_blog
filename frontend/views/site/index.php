@@ -6,6 +6,7 @@ use frontend\widgets\post\PostWidget;
 use frontend\widgets\chat\ChatWidget;
 use frontend\widgets\hot\HotWidget;
 use frontend\widgets\tag\TagWidget;
+use frontend\widgets\search\SearchWidget;
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
@@ -23,7 +24,10 @@ $this->title = '博客－首页';
     <div class="col-lg-3">
         <!-- 创建文章 -->
         <a class="btn btn-success btn-block btn-post" href="<?=Url::to(['post/create'])?>">创建文章</a>
-        
+
+        <!-- 搜索 -->
+        <?=SearchWidget::widget()?>
+
         <!-- 留言板 -->
         <?=ChatWidget::widget()?>
         
