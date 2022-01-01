@@ -43,14 +43,21 @@ AppAsset::register($this);
         $rightMenuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $rightMenuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        $rightMenuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
+        $rightMenuItems[] = [
+            'label' => '<img src="'.Yii::$app->params['avatar']['small'].'" alt="'.Yii::$app->user->identity->username.'">',
+            'linkOptions' => ['class' => 'avatar'],
+            'items' => [
+                [
+                    'label' => '<i class="fa fa-sign-out"></i> ' . Yii::t('common', 'Logout'),
+                    'url' => ['/site/logout'],
+                    'linkOptions' => ['data-method' => 'post']
+                ],
+                [
+                    'label' => '<i class="fa fa-user"></i> ' . Yii::t('common', 'User Profile'),
+                    'url' => '',
+                ]
+            ]
+        ];
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-left'],
@@ -58,6 +65,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => $rightMenuItems,
     ]);
     NavBar::end();

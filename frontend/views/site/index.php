@@ -22,9 +22,6 @@ $this->title = '博客－首页';
         <?=PostWidget::widget()?>
     </div>
     <div class="col-lg-3">
-        <!-- 创建文章 -->
-        <a class="btn btn-success btn-block btn-post" href="<?=Url::to(['post/create'])?>">创建文章</a>
-
         <!-- 搜索 -->
         <?=SearchWidget::widget()?>
 
