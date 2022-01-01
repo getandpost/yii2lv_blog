@@ -54,7 +54,7 @@ AppAsset::register($this);
                 ],
                 [
                     'label' => '<i class="fa fa-user"></i> ' . Yii::t('common', 'User Profile'),
-                    'url' => '',
+                    'url' => ['/user/profile']
                 ]
             ]
         ];
@@ -82,9 +82,11 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+        <div class="pull-left">
+            <p>Copyright &copy; 2017-<?= date('Y') ?> by <?= Html::encode(Yii::$app->name) ?> All Rights Reserved.</p>
+        </div>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= Yii::powered() ?> <?= \Yii::getVersion() ?></p>
     </div>
 </footer>
 
