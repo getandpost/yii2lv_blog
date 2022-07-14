@@ -16,7 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'summary')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'content')->widget('common\widgets\ueditor\Ueditor', [
+        'options'=>[
+            'initialFrameHeight' => 400,
+        ]
+    ]) ?>
 
     <?= $form->field($model, 'label_img')->textInput(['maxlength' => true]) ?>
 

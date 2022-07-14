@@ -15,9 +15,9 @@ class BannerWidget extends Widget
     {
         if (empty($this->items)) {
             $this->items = [
-                ['label' => 'demo', 'image_url' => 'statics/images/banner/b_0.png', 'url' => ['site/index'], 'html' => '', 'active' => 'active'],
-                ['label' => 'demo', 'image_url' => 'statics/images/banner/b_0.png', 'url' => ['site/index'], 'html' => ''],
-                ['label' => 'demo', 'image_url' => 'statics/images/banner/b_0.png', 'url' => ['site/index'], 'html' => ''],
+                ['label' => 'demo', 'image_url' => '../statics/images/banner/b_0.png', 'url' => ['site/index'], 'html' => '', 'active' => 'active'],
+                ['label' => 'demo', 'image_url' => '../statics/images/banner/b_0.png', 'url' => ['site/index'], 'html' => ''],
+                ['label' => 'demo', 'image_url' => '../statics/images/banner/b_0.png', 'url' => ['site/index'], 'html' => ''],
             ];
         }
     }
