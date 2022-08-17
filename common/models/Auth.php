@@ -8,10 +8,10 @@ use common\models\base\Base;
 /**
  * This is the model class for table "auth".
  *
- * @property int $id 自增ID
- * @property int $user_id 用户ID
- * @property string $source 来源
- * @property string $source_id 来源ID
+ * @property int $id
+ * @property int $user_id
+ * @property string $source
+ * @property string $source_id
  */
 class Auth extends Base
 {
@@ -29,8 +29,9 @@ class Auth extends Base
     public function rules()
     {
         return [
+            [['user_id', 'source', 'source_id'], 'required'],
             [['user_id'], 'integer'],
-            [['source_id'], 'string', 'max' => 255],
+            [['source', 'source_id'], 'string', 'max' => 255],
         ];
     }
 
@@ -41,7 +42,9 @@ class Auth extends Base
     {
         return [
             'id' => 'ID',
-            'source' => 'Source'
+            'user_id' => 'User ID',
+            'source' => 'Source',
+            'source_id' => 'Source ID',
         ];
     }
 }

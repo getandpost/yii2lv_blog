@@ -27,6 +27,7 @@ CREATE TABLE `admin` (
   `password_reset_token` varchar(255) DEFAULT NULL COMMENT '重置密码token',
   `email_validate_token` varchar(255) DEFAULT NULL COMMENT '邮箱验证token',
   `email` varchar(255) NOT NULL DEFAULT '' COMMENT '邮箱',
+  `github` varchar(255) NOT NULL DEFAULT '' COMMENT 'github',
   `role` smallint(6) NOT NULL DEFAULT '10' COMMENT '角色等级',
   `status` smallint(6) NOT NULL DEFAULT '10' COMMENT '状态',
   `avatar` varchar(255) DEFAULT NULL COMMENT '头像',
